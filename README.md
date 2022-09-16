@@ -1,6 +1,6 @@
 # DominanceStatistics.jl
 
-The module `DominanceStatistics.jl` includes a range of functions for calculating statistics from the difference or dominance matrix for two samples, including the Hodges-Lehmann median difference, Cliff's $d$ statistic of stochastic equality, and Vargha and Delaney's $A$ statistic.
+The module `DominanceStatistics.jl` includes a range of functions for calculating statistics from the difference or dominance matrix for two samples, including the Hodges-Lehmann median difference, Cliff's d statistic of stochastic equality, and Vargha and Delaney's A statistic.
 
 First, we load the module:
 
@@ -60,7 +60,7 @@ M = differenceMatrix(sample1, sample2)
 ```
 
 ## Hodges-Lehmann median difference
-To calculate the [Hodges-Lehmann median difference](https://en.wikipedia.org/wiki/Hodges–Lehmann_estimator) for two samples, we calculate the difference matrix of our two data sets and find the median value: $HL\Delta = median(X_{i}-Y_{j})$.
+To calculate the [Hodges-Lehmann median difference](https://en.wikipedia.org/wiki/Hodges–Lehmann_estimator) for two samples, we calculate the difference matrix of our two data sets and find the median value: HLD = median(X<sub>i</sub>-Y<sub>j</sub>).
 
 ```julia
 HLD(x, y; xname="A", yname="B", nboot=1000, conf_level=0.95, print_results=true)
@@ -116,8 +116,8 @@ Main.DominanceStatistics.hldresults{Float64}
 ## Dominance effect sizes
 The `dominanceEffectSizes` function returns
 
-- Cliff's $d$ statistic of stochastic equality, $d = P(X > Y) - P(X < Y)$, along with a confidence interval, $Z$-statistic, and $p$-value.
-- Vargha and Delaney's $A$ statistic, where $A = P(X > Y) + 0.5(X = Y)$, with confidence interval.
+- Cliff's d statistic of stochastic equality, d = P(X > Y) - P(X < Y), along with a confidence interval, Z-statistic, and p-value.
+- Vargha and Delaney's A statistic, where A = P(X > Y) + 0.5(X = Y), with confidence interval.
 
 ```julia
 dominanceEffectSizes(x, y; xname="A", yname="B", conf_level=0.95, print_results="true")
@@ -141,7 +141,7 @@ Confidence level = 95.0%
 
 Individual elements of the struct storing the results of the function can be accessed as above.
 
-The confidence interval for $d$ can be calculated directly from a dominance matrix and a given value of $d$. The $Z$-statistic and $p$-value are also returned.
+The confidence interval for d can be calculated directly from a dominance matrix and a given value of d. The Z-statistic and p-value are also returned.
 
 ```julia
 dominanceCI(m, d=-0.66; conf_level = 0.95)
