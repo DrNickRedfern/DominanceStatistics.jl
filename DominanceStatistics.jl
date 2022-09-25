@@ -6,7 +6,7 @@ This Julia module implements a number of functions for dominance statistics.
     differenceMatrix - Compute the difference matrix for two numeric vectors.
     HLD - Compute the Hodges-Lehmann median difference, with bootstrapped confidence intervals.
     dominanceEffectSizes - Compute a range of effect sizes.
-    MannWhitneyOdds - Compute the results of the Mann-Whitney test and the MW odds ratio.
+    dominanceCI - Calculate confidence intervals for Cliff's d
 
 # Author:
     Nick Redfern
@@ -20,7 +20,7 @@ module DominanceStatistics
 
 using DataFrames, Distributions, Statistics, Bootstrap, StatsBase
 
-export dominanceMatrix, differenceMatrix, HLD, dominanceEffectSizes, MannWhitneyOdds, dominanceCI
+export dominanceMatrix, differenceMatrix, HLD, dominanceEffectSizes, dominanceCI
 
 """
 Custom type for accesing results from HLD:
